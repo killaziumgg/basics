@@ -1,0 +1,11 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "number": "0x15a0c58",
+    "baseFeePerGas": "0x2cb417800",
+    "gasUsed": "0x989680",
+    "gasLimit": "0x1c9c380",
+    "timestamp": "0x6650a000"
+  }
+}

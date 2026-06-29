@@ -1,0 +1,11 @@
+# Dependencies (regenerable via npm install)
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs / OS junk
+*.log
+.DS_Store
+Thumbs.db

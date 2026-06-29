@@ -1,0 +1,4 @@
+# Fichiers exclus du dépôt
+*.zip
+WhatsApp*
+node_modules/

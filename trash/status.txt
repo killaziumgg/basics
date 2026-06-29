@@ -1,0 +1,50 @@
+Comment la lire :
+
+context.slot (425 734 579) : le slot auquel le nœud a évalué ta requête — c'est "maintenant", pas ta transaction.
+value[0].slot (425 083 578) : le slot du bloc qui contient ta tx. L'écart entre les deux (~651 000 slots ≈ 3 jours) montre qu'elle est ancienne — c'est pour ça que searchTransactionHistory: true était nécessaire, sinon tu aurais eu value: [null].
+confirmationStatus: "finalized" + confirmations: null : la tx est dans un bloc finalisé, irréversible — les deux champs disent la même chose.
+err: null : exécutée avec succès. (status: {"Ok": null} est l'ancien format de ce même champ, déprécié mais toujours renvoyé.)
+
+
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "context": {
+      "apiVersion": "4.0.0",
+      "slot": 425734579
+    },
+    "value": [
+      {
+        "confirmationStatus": "finalized",
+        "confirmations": null,
+        "err": null,
+        "slot": 425083578,
+        "status": { "Ok": null }
+      }
+    ]
+  },
+  "id": 1
+}
+
+
+null                                        → inconnue / expirée / pas encore propagée
+processed                                   → exécutée, mais annulable, n'en tire aucune conclusion
+confirmed                                   → quasi sûre (supermajorité)
+finalized   + err === null                  → ✅ passée, définitive, réussie
+finalized   + err !== null                  → ❌ définitive mais échouée (frais payés)
+
+
+t+0s   confirmed   confirmations: 0
+t+2s   confirmed   confirmations: 5
+t+4s   confirmed   confirmations: 11
+t+6s   confirmed   confirmations: 16
+t+8s   confirmed   confirmations: 21
+t+10s  confirmed   confirmations: 27
+t+12s  finalized   confirmations: null   ← bascule
+
+
+Donc pour répondre précisément : tant que la tx n'est pas finalisée, confirmations est un entier — le nombre de blocs confirmés construits par-dessus le bloc qui contient ta tx. Il démarre à 0 (la tx vient d'entrer dans un bloc, rien au-dessus) et monte au rythme du réseau (~2-3 blocs/seconde). Quand la pile atteint ~31 blocs (le "max lockout" de 32 slots), le bloc devient root : confirmationStatus passe à "finalized" et confirmations bascule à null. C'est contre-intuitif mais c'est le sens du null ici : non pas "inconnu" mais "on a fini de compter, c'est définitif".
+
+Tu remarqueras que confirmationStatus est resté "confirmed" pendant toute la montée — les deux champs sont redondants, confirmations te donne juste la granularité fine de la progression vers la finalisation.
+
+Et regarde le champ err dans la sortie brute : {"InstructionError":[5,{"Custom":6002}]} du début à la fin. Cette transaction a échoué (l'instruction n°5 a renvoyé l'erreur custom 6002 du programme), et pourtant elle a été confirmée puis finalisée normalement. C'est la preuve concrète que le niveau de confirmation et le succès sont deux axes indépendants : elle est définitivement inscrite dans un bloc finalisé... en tant qu'échec, frais prélevés.

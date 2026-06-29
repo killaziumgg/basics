@@ -1,0 +1,62 @@
+{
+    "Solana" : {
+        "ChainName" : "Solana",
+        "ChainTicker" : "SOL",
+        "ChainId" : null,
+        "ChainRPC" : [
+            "https://api.mainnet-beta.solana.com"
+        ]
+    },
+    "EVM" : {
+        "MultiChain" : true,
+        "Chains" : [
+            {
+                "ChainName" : "Ethereum",
+                "ChainTicker" : "ETH",
+                "ChainId" : 1,
+                "AddressFormat" : "evm",
+                "NativeSymbol" : "ETH",
+                "NativeDecimals" : 18,
+                "Finality" : 12,
+                "ChainRPC" : [
+                    "https://ethereum-rpc.publicnode.com"
+                ]
+            },
+            {
+                "ChainName" : "Base",
+                "ChainTicker" : "BASE",
+                "ChainId" : 8453,
+                "AddressFormat" : "evm",
+                "NativeSymbol" : "ETH",
+                "NativeDecimals" : 18,
+                "Finality" : 12,
+                "ChainRPC" : [
+                    "https://mainnet.base.org",
+                    "https://base-rpc.publicnode.com"
+                ]
+            },
+            {
+                "ChainName" : "Tron",
+                "ChainTicker" : "TRX",
+                "ChainId" : 728126428,
+                "AddressFormat" : "tron",
+                "NativeSymbol" : "TRX",
+                "NativeDecimals" : 6,
+                "Finality" : 19,
+                "SupportsBaseFee" : false,
+                "ChainRPC" : [
+                    "https://api.trongrid.io/jsonrpc"
+                ]
+            }
+        ]
+    },
+    "Bitcoin" : {
+        "ChainName" : "Bitcoin",
+        "ChainTicker" : "BTC",
+        "ChainId" : null,
+        "ChainRPC" : [
+            "https://mempool.space/api",
+            "https://blockstream.info/api"
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    { "slot": 425716363, "prioritizationFee": 1200 },
+    { "slot": 425716364, "prioritizationFee": 0 },
+    { "slot": 425716365, "prioritizationFee": 0 },
+    { "slot": 425716366, "prioritizationFee": 0 },
+    { "slot": 425716367, "prioritizationFee": 0 },
+    { "slot": 425716368, "prioritizationFee": 1200 },
+    { "slot": 425716369, "prioritizationFee": 0 },
+    { "slot": 425716370, "prioritizationFee": 0 },
+    { "slot": 425716371, "prioritizationFee": 0 },
+    { "slot": 425716372, "prioritizationFee": 0 },
+    { "slot": 425716373, "prioritizationFee": 1200 },
+    { "slot": 425716374, "prioritizationFee": 0 },
+    { "slot": 425716375, "prioritizationFee": 0 },
+    { "slot": 425716376, "prioritizationFee": 0 },
+    { "slot": 425716377, "prioritizationFee": 0 },
+    { "slot": 425716378, "prioritizationFee": 1200 },
+    { "slot": 425716379, "prioritizationFee": 0 },
+    { "slot": 425716380, "prioritizationFee": 0 },
+    { "slot": 425716381, "prioritizationFee": 0 },
+    { "slot": 425716382, "prioritizationFee": 0 }
+  ]
+}
