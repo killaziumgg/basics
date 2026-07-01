@@ -1,0 +1,19 @@
+{
+    "name": "hexarq-bot-teams",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "tsx watch bot_teams.ts",
+        "start": "tsx bot_teams.ts"
+    },
+    "dependencies": {
+        "@microsoft/teams.apps": "latest",
+        "@microsoft/teams.api": "latest",
+        "@microsoft/teams.dev": "latest",
+        "dotenv": "^17.0.0"
+    },
+    "devDependencies": {
+        "tsx": "^4.22.4",
+        "@types/node": "^25.9.3"
+    }
+}

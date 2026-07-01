@@ -1,0 +1,35 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.19",
+    "version": "1.0.0",
+    "id": "REMPLACER-PAR-CLIENT_ID-DU-BOT",
+    "developer": {
+        "name": "hexarq",
+        "websiteUrl": "https://example.com",
+        "privacyUrl": "https://example.com/privacy",
+        "termsOfUseUrl": "https://example.com/terms"
+    },
+    "name": {
+        "short": "hexarq",
+        "full": "hexarq — suivi blockchain"
+    },
+    "description": {
+        "short": "Suivi d'adresses et de transactions blockchain.",
+        "full": "Colle une adresse ou un hash de transaction : le bot interroge l'API hexarq et te notifie des qu'une transaction est finalisee."
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "accentColor": "#2A6BF2",
+    "bots": [
+        {
+            "botId": "REMPLACER-PAR-CLIENT_ID-DU-BOT",
+            "scopes": ["personal", "team", "groupChat"],
+            "supportsFiles": false,
+            "isNotificationOnly": false
+        }
+    ],
+    "permissions": ["identity", "messageTeamMembers"],
+    "validDomains": []
+}
